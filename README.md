@@ -15,9 +15,8 @@ UI prototype ready, API integration underway.
 
 - ⚛️ React Native
 - 🔠 TypeScript
-- 📲 Expo (optional, depending on setup)
-- 📰 Free news APIs (e.g., NewsAPI, GNews)
-- 💅 Custom futuristic UI with transparent layout
+- 📲 Expo
+- 📰 Free news APIs (e.g., NewsAPI)
 
 ---
 
