@@ -1,84 +1,10 @@
 import React from 'react';
-import { StyleSheet, RefreshControl, SafeAreaView, FlatList } from 'react-native';
+import { RefreshControl, SafeAreaView, FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Header from './components/Header';
 import Dropdown from './components/Dropdown';
 import News from './components/News';
-
-const newsData = [
-	{
-		title: 'AI breakthrough in NLP sets new benchmarks',
-		description:
-			`A new AI model has significantly outperformed previous systems in natural language processing tasks.A new AI model has significantly outperformed previous systems in natural language processing tasks.`,
-		time: '3h ago',
-		image: require('./assets/icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'New AI model beats humans in image recognition',
-		description:
-			'Researchers unveil an AI system that surpasses human performance in identifying images.',
-		time: '3h ago',
-		image: require('./assets/splash-icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'Advances in neural networks drive AI technology',
-		description:
-			'Ongoing research in neural networks is pushing the boundaries of what AI can achieve.',
-		time: '3h ago',
-		tag: 'AI',
-		image: require('./assets/adaptive-icon.png'),
-	},
-  	{
-		title: 'AI breakthrough in NLP sets new benchmarks',
-		description:
-			'A new AI model has significantly outperformed previous systems in natural language processing tasks.',
-		time: '3h ago',
-		image: require('./assets/icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'New AI model beats humans in image recognition',
-		description:
-			'Researchers unveil an AI system that surpasses human performance in identifying images.',
-		time: '3h ago',
-		image: require('./assets/splash-icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'Advances in neural networks drive AI technology',
-		description:
-			'Ongoing research in neural networks is pushing the boundaries of what AI can achieve.',
-		time: '3h ago',
-		tag: 'AI',
-		image: require('./assets/adaptive-icon.png'),
-	},
-  	{
-		title: 'AI breakthrough in NLP sets new benchmarks',
-		description:
-			'A new AI model has significantly outperformed previous systems in natural language processing tasks.',
-		time: '3h ago',
-		image: require('./assets/icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'New AI model beats humans in image recognition',
-		description:
-			'Researchers unveil an AI system that surpasses human performance in identifying images.',
-		time: '3h ago',
-		image: require('./assets/splash-icon.png'),
-		tag: 'AI',
-	},
-	{
-		title: 'Advances in neural networks drive AI technology',
-		description:
-			'Ongoing research in neural networks is pushing the boundaries of what AI can achieve.',
-		time: '3h ago',
-		tag: 'AI',
-		image: require('./assets/adaptive-icon.png'),
-	},
-];
+import newsData from './data/newsData';
 
 export default function App() {
 	const [selected, setSelected] = React.useState('AI News');
@@ -125,12 +51,3 @@ export default function App() {
 		</SafeAreaView>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
