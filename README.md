@@ -28,6 +28,7 @@ UI prototype ready, API integration underway.
 - 🔄 Pull to refresh
 - 📖 Article detail view
 - 🌙 Light/Dark mode (future)
+- 📋 Copy text to clipboard  
 - 💬 Shareable headlines (future)
 - 💰 AdMob integration (future)
 
