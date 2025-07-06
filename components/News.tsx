@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { TitleText, BodyText, SmallText } from './StyledText';
 import { Colors } from '../styles/globalStyles';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../screens/NewsDetailScreen';
 
 interface NewsProps {
   title: string;
@@ -11,22 +14,40 @@ interface NewsProps {
   tag: string;
 }
 
-const News: React.FC<NewsProps> = ({ title, description, time, image, tag }) => (
-  <View style={styles.card}>
-    <Image source={image} style={styles.image} />    
-    <View style={styles.rightContent}>
-      <TitleText style={styles.title} numberOfLines={2} ellipsizeMode="tail">{title}</TitleText>
-      <BodyText style={styles.description} numberOfLines={2} ellipsizeMode="tail">{description}</BodyText>
-      <View style={styles.bottomRow}>
-        <SmallText style={styles.time}>Source • {time}</SmallText>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <SmallText style={styles.tag}>{tag}</SmallText>
-          <SmallText style={styles.shareTag}>📎</SmallText>
-        </View>
-      </View>
-    </View>
-  </View>
-);
+interface NewsListProps {
+  data: NewsProps[];
+}
+
+const NewsList: React.FC<NewsListProps> = ({ data }) => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'Home'>>();
+
+  return (
+    <ScrollView>
+      {data.map((item, idx) => (
+        <TouchableOpacity
+          key={idx}
+          onPress={() => navigation.navigate('NewsDetail', item)}
+          activeOpacity={0.85}
+        >
+          <View style={styles.card}>
+            <Image source={item.image} style={styles.image} />
+            <View style={styles.rightContent}>
+              <TitleText style={styles.title} numberOfLines={2} ellipsizeMode="tail">{item.title}</TitleText>
+              <BodyText style={styles.description} numberOfLines={2} ellipsizeMode="tail">{item.description}</BodyText>
+              <View style={styles.bottomRow}>
+                <SmallText style={styles.time}>Source • {item.time}</SmallText>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <SmallText style={styles.tag}>{item.tag}</SmallText>
+                  <SmallText style={styles.shareTag}>📎</SmallText>
+                </View>
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({  card: {
     backgroundColor: Colors.cardBackground,
@@ -93,4 +114,4 @@ const styles = StyleSheet.create({  card: {
   },
 });
 
-export default News;
+export default NewsList;
